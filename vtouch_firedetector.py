@@ -1,14 +1,12 @@
 import torch
-import torch.backends.cudnn as cudnn
 import numpy as np
 
 from models.experimental import attempt_load, attempt_load_v5
-from utils.datasets import LoadStreams, LoadImages, letterbox
-from utils.general import check_img_size, check_img_size_v5, check_imshow, non_max_suppression, apply_classifier, scale_coords, xyxy2xywh, set_logging
+from utils.datasets import letterbox
+from utils.general import check_img_size, check_img_size_v5, non_max_suppression, apply_classifier, scale_coords, xyxy2xywh, set_logging
 from utils.plots import plot_one_box
-from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
+from utils.torch_utils import select_device, time_synchronized, TracedModel
 
-from models.common import DetectMultiBackend
 from vtouch_mec_ai_data import DetectionBox, VTouchLabel
 
 class VTouchFireDetector:
