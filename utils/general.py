@@ -914,7 +914,11 @@ def apply_classifier(x, model, img, im0, imgsz, names, device):
                     pred = F.softmax(results, dim=1)  # probabilities
                                 
                 # Results
-                pred_cls2.append(False if np.argmax(pred.tolist()[0])==0 else True)     # 0: default, 1: fire, 2: smoke 
+                prob = pred.tolist()[0]
+                pred_cls2.append(False if np.argmax(prob)==0 else True)     # 0: default, 1: fire, 2: smoke                 
+                top = np.argsort(prob)[::-1]
+                text = '\t'.join(f'{prob[j]:.2f} {names[j]}' for j in top) 
+                # print(text)
                                             
             print(f"Classified: {pred_cls2}, Inference ({(time.time()-t0) * 1E3:.1f}ms)")
 
