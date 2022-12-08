@@ -11,10 +11,10 @@ import torch
 from vtouch_firedetector import VTouchFireDetector
 
 import platform, pathlib
-if platform.system() == 'Linux':
+if platform.system() == 'Linux':        # For Linux
     pathlib.WindowsPath = pathlib.PosixPath
 
-# 샘플 영상
+# Set source
 # url = 'rtsp://'
 url = 0
 cap = cv2.VideoCapture(url)
