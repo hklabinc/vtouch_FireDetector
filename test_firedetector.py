@@ -10,6 +10,10 @@ import time
 import torch
 from vtouch_firedetector import VTouchFireDetector
 
+import platform, pathlib
+if platform.system() == 'Linux':
+    pathlib.WindowsPath = pathlib.PosixPath
+
 # 샘플 영상
 # url = 'rtsp://'
 url = 0
@@ -28,7 +32,7 @@ while True :
     cv2.waitKey(1)
     
     now = time.time()        
-    if now - past > 1:      # every 1 second
+    if now - past > 0.1:      # every 0.1 second
         past = now
         
         with torch.no_grad():       
