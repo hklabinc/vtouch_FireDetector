@@ -6,6 +6,11 @@ import cv2, torch
 import platform, pathlib
 import sys, base64, time, queue, threading
 
+# For Linux Path Setting
+if platform.system() == 'Linux':        
+        print('\033[33m' + "Set path for linux..." + '\033[0m')
+        pathlib.WindowsPath = pathlib.PosixPath     
+
 ### Initialization ###
 CONFIDENCE_THRESHOLD = 0.25
 DETECT_PERIOD = 0.1
@@ -77,11 +82,6 @@ def Process():
 
 ### Main Thread ###
 if __name__=='__main__':
-
-    if platform.system() == 'Linux':        # For Linux
-        print('\033[33m' + "Set path for linux..." + '\033[0m')
-        pathlib.WindowsPath = pathlib.PosixPath     
-
     try:
         p1 = threading.Thread(target=Receive, daemon=True)       # https://stackoverflow.com/questions/49233433/opencv-read-errorh264-0x8f915e0-error-while-decoding-mb-53-20-bytestream        
         p2 = threading.Thread(target=Process, daemon=True)        
