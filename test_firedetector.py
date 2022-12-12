@@ -66,7 +66,7 @@ def Process():
             with torch.no_grad():       
                 result, frame_det = fd.detect(frame_iamge, conf_thres=CONFIDENCE_THRESHOLD, draw_box=True)     # Inference with Yolo
                 
-            cv2.imshow("Video_detected", frame_det)
+            # cv2.imshow("Video_detected", frame_det)
         
             if len(result) > 0:     # Only if anything is detected, send to server
                 ret, jpg_image = cv2.imencode('.jpg', frame_det)
