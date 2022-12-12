@@ -6,10 +6,10 @@ import cv2, torch
 import platform, pathlib
 import sys, base64, time, queue, threading
 
-# For Linux Path Setting
+### Path setup in case of Linux
 if platform.system() == 'Linux':        
-        print('\033[33m' + "Set path for linux..." + '\033[0m')
-        pathlib.WindowsPath = pathlib.PosixPath     
+    print('\033[95m' + "Set path for linux..." + '\033[0m')
+    pathlib.WindowsPath = pathlib.PosixPath     
 
 ### Initialization ###
 CONFIDENCE_THRESHOLD = 0.25
@@ -28,16 +28,16 @@ url = 'rtsp://admin:init123!!@1.237.139.6:554/SD'
 # url = 'rtsp://'
 # url = 0
 
-print('\033[33m' + "Connect to server..." + '\033[0m')
+print('\033[95m' + "Connect to server..." + '\033[0m')
 comm = VTouchMecComm()
 
-print('\033[33m' + "Initialize Yolo..." + '\033[0m')
+print('\033[95m' + "Initialize Yolo..." + '\033[0m')
 fd = VTouchFireDetector(weights, weights_c, classify=True)      # Set classify=True if want to use second-stage classification
 
 
 ### Receiving Thread ###
 def Receive():
-    print('\033[33m' + "Start Reveive thread..." + '\033[0m')    
+    print('\033[95m' + "Start Reveive thread..." + '\033[0m')    
     past = time.time()
     cap = cv2.VideoCapture(url)
     while True :
@@ -47,10 +47,10 @@ def Receive():
         if not(ret):                            # If RTSP stream is lost, reinitialize
             st = time.time()
             cap = cv2.VideoCapture(url)                 
-            print('\033[33m' + f'RTSP stream is reinitialized, lost time is {time.time()-st}...' + '\033[0m')    
+            print('\033[95m' + f'RTSP stream is reinitialized, lost time is {time.time()-st}...' + '\033[0m')    
         else:            
             if q.qsize() > MAX_QUEUE_SIZE:          # Prevent queue overflow
-                print('\033[33m' + f'Current queue size of {q.qsize()} is too long, drop frames...' + '\033[0m')    
+                print('\033[95m' + f'Current queue size of {q.qsize()} is too long, drop frames...' + '\033[0m')    
                 q.queue.clear()
 
             now = time.time()        
@@ -60,7 +60,7 @@ def Receive():
 
 ### Processing Thread ### 
 def Process():
-    print('\033[33m' + "Start Process thread..." + '\033[0m')    
+    print('\033[95m' + "Start Process thread..." + '\033[0m')    
     
     while True:      
         cv2.waitKey(1)
@@ -91,5 +91,5 @@ if __name__=='__main__':
         while True:
             time.sleep(100)
     except (KeyboardInterrupt, SystemExit):
-        print('\033[33m' + 'Keyboard interrupted, Quitting program.\n' + '\033[0m') 
+        print('\033[95m' + 'Keyboard interrupted, Quitting program.\n' + '\033[0m') 
         sys.exit()
