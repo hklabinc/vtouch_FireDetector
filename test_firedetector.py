@@ -20,7 +20,6 @@ q = queue.Queue()
 weights = 'weights/od_fire_smoke.pt'            # Yolov7 Detection model
 weights_c = 'weights/ic_default_fire_smoke.pt'  # Yolov5 Classify model
 url = 'rtsp://'
-url = 'rtsp://admin:init123!!@1.237.139.6:554/SD'
 # url = 0
 
 print('\033[95m' + "Connect to server..." + '\033[0m')
