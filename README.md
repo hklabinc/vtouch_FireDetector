@@ -11,6 +11,12 @@ test_firedetector.py로 실행
   - Linux Ubuntu에서 동작 확인
   - Docker (python:3.9-slim) 환경에서 동작 확인
 
+- 실행
+  1) git clone https://github.com/hklabinc/vtouch_FireDetector.git
+  2) pip install -r requirements.txt
+  3) python vtouch_mec_wsserver_test.py
+  4) python test_firedetector.py
+
 - 파일
   - test_firedetector : fire detector 실행
   - vtouch_firedetector : 메인 fire detector 동작
