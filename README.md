@@ -2,7 +2,7 @@
 2022 vtouch FireDetector
 
 test_firedetector.py로 실행
-0.1초 정도 간격으로 OD -> IC 두 단계 동작 
+0.1초 정도 간격으로 Object detection -> Image classification 두 단계 동작 
 
 - 환경
   - Object detection은 yolov7, Image classification은 yolov5를 기반
