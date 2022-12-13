@@ -19,7 +19,14 @@ MAX_QUEUE_SIZE = 10             # If queue size is greater than MAX_QUEUE_SIZE, 
 q = queue.Queue()
 weights = 'weights/od_fire_smoke.pt'            # Yolov7 Detection model
 weights_c = 'weights/ic_default_fire_smoke.pt'  # Yolov5 Classify model
-url = 'rtsp://'
+# url = 'rtsp://admin:init123!!@192.168.0.59:554/SD'
+# url = 'rtsp://admin:init123!!@192.168.0.59:554/HD'
+# url = 'rtsp://admin:init123!!@sean715.iptime.org:554/SD'
+url = 'rtsp://admin:init123!!@1.237.139.6:554/SD'
+# url = 'rtsp://sonslab:sons123!@hklab-cam02.iptimecam.com:21064/stream_ch00_0'
+# url = 'rtsp://admin:tech0316_@218.145.166.65:554/MOBILE'    # Vtouch Camera
+# url = 'datasets/ONO-9081R_20221024164811.avi'               # Pyeongtak
+# url = 'rtsp://'
 # url = 0
 
 print('\033[95m' + "Connect to server..." + '\033[0m')
@@ -77,7 +84,7 @@ def Process():
 ### Main Thread ###
 if __name__=='__main__':
     try:
-        p1 = threading.Thread(target=Receive, daemon=True)       
+        p1 = threading.Thread(target=Receive, daemon=True)       # https://stackoverflow.com/questions/49233433/opencv-read-errorh264-0x8f915e0-error-while-decoding-mb-53-20-bytestream 
         p2 = threading.Thread(target=Process, daemon=True)        
         p1.start()
         p2.start()
