@@ -55,23 +55,23 @@ class WSServer:
 
        
             ## Add box to image ######################################
-            jsonArray = json_dict.get("detection_boxes")
-            for list in jsonArray:
-                xywh = (list.get("x_center"), list.get("y_center"), list.get("width"), list.get("height"))
-                conf = list.get("confidence")
-                label = list.get("label")
+            # jsonArray = json_dict.get("detection_boxes")
+            # for list in jsonArray:
+            #     xywh = (list.get("x_center"), list.get("y_center"), list.get("width"), list.get("height"))
+            #     conf = list.get("confidence")
+            #     label = list.get("label")
 
-                xyxy = (xywh[0] - xywh[2] / 2,  # top left x
-                        xywh[1] - xywh[3] / 2,  # top left y
-                        xywh[0] + xywh[2] / 2,  # bottom right x
-                        xywh[1] + xywh[3] / 2)  # bottom right y
+            #     xyxy = (xywh[0] - xywh[2] / 2,  # top left x
+            #             xywh[1] - xywh[3] / 2,  # top left y
+            #             xywh[0] + xywh[2] / 2,  # bottom right x
+            #             xywh[1] + xywh[3] / 2)  # bottom right y
 
-                # Plots one bounding box on image img
-                plot_one_box(xyxy, img, color=[0, 255, 0], label=f'{label} {conf:.2f}', line_thickness=1)
+            #     # Plots one bounding box on image img
+            #     plot_one_box(xyxy, img, color=[0, 255, 0], label=f'{label} {conf:.2f}', line_thickness=1)
             ##########################################################
 
 
-            cv2.imshow(f'{ws.remote_address}', img)
+            # cv2.imshow(f'{ws.remote_address}', img)
             # cv2.imshow(f'{ws.remote_address}', cv2.resize(img, dsize=(640, 480), interpolation=cv2.INTER_AREA))
             cv2.waitKey(1)
 
@@ -81,6 +81,7 @@ class WSServer:
 
 server = WSServer()
 start_server = websockets.serve(server.ws_handler, 'localhost', 20000)
+# start_server = websockets.serve(server.ws_handler, '220.68.241.62', 8091)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(start_server)
