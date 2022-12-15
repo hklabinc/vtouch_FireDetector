@@ -80,8 +80,8 @@ class WSServer:
 
 
 server = WSServer()
-start_server = websockets.serve(server.ws_handler, 'localhost', 20000)
-# start_server = websockets.serve(server.ws_handler, '220.68.241.62', 8091)
+# start_server = websockets.serve(server.ws_handler, 'localhost', 20000)
+start_server = websockets.serve(server.ws_handler, '220.68.241.62', 8091)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(start_server)

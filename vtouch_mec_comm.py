@@ -2,8 +2,8 @@ import asyncio
 import websockets
 import time
 
-URL = 'ws://localhost:20000'
-# URL = 'ws://220.68.241.62:8091'
+# URL = 'ws://localhost:20000'
+URL = 'ws://220.68.241.62:8091'
 
 class VTouchMecComm:
     def __init__(self):
