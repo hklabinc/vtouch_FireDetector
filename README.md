@@ -29,7 +29,7 @@ test_firedetector.py로 실행
 - 옵션 (test_firedetector에서)
   - IS_CLASSIFY : 두번째 IC 사용 여부 선택 (True일 경우 second-stage image classification 사용, False일 경우 object detection만 사용)
   - IS_SMALL_YOLOv7_OD : YOLOv7 Object Detection의 Small 모델 사용 여부 (True일 경우 Small 모델 사용, False일 경우 Medium 모델 사용)
-  - IS_SMALL_YOLOv5_IC : YOLOv5 Image Classification의 Small 모델 사용 여부 (True일 경우 Small 모델 사용)
+  - IS_SMALL_YOLOv5_IC : YOLOv5 Image Classification의 Small 모델 사용 여부 (True일 경우 Small 모델 사용, False일 경우 Medium 모델 사용)
   - CONFIDENCE_THRESHOLD : 오브젝트 검출을 위한 confidence 값 (default=0.25)
   - DETECT_PERIOD : 매 DETECT_PERIOD 마다 캡쳐된 이미지가 큐에 들어감 (default=0.1)             
   - MAX_QUEUE_SIZE : 최대 큐 사이즈로 이 값에 다다르면 큐가 비워짐 (default=10)   
