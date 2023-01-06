@@ -14,7 +14,7 @@ if platform.system() == 'Linux':
 
 ### Initialization ###
 IS_CLASSIFY = True              # True if want to use second-stage image classification
-IS_SMALL_YOLOv7_OD = True      # True if want the small model for YOLOv7 Object Detection 
+IS_SMALL_YOLOv7_OD = False      # True if want the small model for YOLOv7 Object Detection 
 IS_SMALL_YOLOv5_IC = True       # True if want the small model for YOLOv5 Image Classification
 CONFIDENCE_THRESHOLD = 0.25     # If the confidence value is less than CONFIDENCE_THRESHOLD, the object is detected
 DETECT_PERIOD = 0.1             # Captured image is put into the queue every DETECT_PERIOD
@@ -23,7 +23,14 @@ q = queue.Queue()
 weights   = 'weights/od_small_fire_smoke.pt'         if IS_SMALL_YOLOv7_OD else 'weights/od_medium_fire_smoke.pt'   
 weights_c = 'weights/ic_small_default_fire_smoke.pt' if IS_SMALL_YOLOv5_IC else 'weights/ic_medium_default_fire_smoke.pt'   
 
-url = 'rtsp://'
+# url = 'rtsp://admin:init123!!@192.168.0.59:554/SD'
+# url = 'rtsp://admin:init123!!@sean715.iptime.org:554/SD'
+url = 'rtsp://admin:init123!!@1.237.139.6:554/SD'
+# url = 'rtsp://admin:init123!!@192.168.0.59:554/HD'
+# url = 'rtsp://sonslab:sons123!@hklab-cam02.iptimecam.com:21064/stream_ch00_0'
+# url = 'rtsp://admin:tech0316_@218.145.166.65:554/MOBILE'    # Vtouch Camera
+# url = 'datasets/ONO-9081R_20221024164811.avi'               # Pyeongtak
+# url = 'rtsp://'
 # url = 0
 
 print('\033[95m' + "Connect to server..." + '\033[0m')
