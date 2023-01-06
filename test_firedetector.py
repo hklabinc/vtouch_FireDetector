@@ -23,13 +23,6 @@ q = queue.Queue()
 weights   = 'weights/od_small_fire_smoke.pt'         if IS_SMALL_YOLOv7_OD else 'weights/od_medium_fire_smoke.pt'   
 weights_c = 'weights/ic_small_default_fire_smoke.pt' if IS_SMALL_YOLOv5_IC else 'weights/ic_medium_default_fire_smoke.pt'   
 
-# url = 'rtsp://admin:init123!!@192.168.0.59:554/SD'
-# url = 'rtsp://admin:init123!!@sean715.iptime.org:554/SD'
-url = 'rtsp://admin:init123!!@1.237.139.6:554/SD'
-# url = 'rtsp://admin:init123!!@192.168.0.59:554/HD'
-# url = 'rtsp://sonslab:sons123!@hklab-cam02.iptimecam.com:21064/stream_ch00_0'
-# url = 'rtsp://admin:tech0316_@218.145.166.65:554/MOBILE'    # Vtouch Camera
-# url = 'datasets/ONO-9081R_20221024164811.avi'               # Pyeongtak
 # url = 'rtsp://'
 # url = 0
 
