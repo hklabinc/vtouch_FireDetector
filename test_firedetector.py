@@ -23,7 +23,7 @@ q = queue.Queue()
 weights   = 'weights/od_small_fire_smoke.pt'         if IS_SMALL_YOLOv7_OD else 'weights/od_medium_fire_smoke.pt'   
 weights_c = 'weights/ic_small_default_fire_smoke.pt' if IS_SMALL_YOLOv5_IC else 'weights/ic_medium_default_fire_smoke.pt'   
 
-# url = 'rtsp://'
+url = 'rtsp://'
 # url = 0
 
 print('\033[95m' + "Connect to server..." + '\033[0m')
